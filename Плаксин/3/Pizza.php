@@ -5,7 +5,7 @@ class Pizza {
     private $sauce;
     private $toppings = [];
 
-    public function __construct($name, $sauce, array $toppings) {
+    public function __construct(string $name, string $sauce, array $toppings) {
         $this->name = $name;
         $this->sauce = $sauce;
         $this->toppings = $toppings;
