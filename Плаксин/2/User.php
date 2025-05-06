@@ -5,21 +5,22 @@ class User {
     private $password;
     private $birthday;
 
-    public function __construct($username, $password, DateTime $birthday) {
+    public function __construct(string $username, string $password, DateTime $birthday) {
         $this->username = $username;
         $this->password = $password;
         $this->birthday = $birthday;
     }
 
-    public function getUsername() {
+    public function getUsername(): string 
+    {
         return $this->username;
     }
 
-    public function getPassword() {
+    public function getPassword(): string {
         return $this->password;
     }
 
-    public function getBirthday() {
+    public function getBirthday(): DateTime {
         return $this->birthday;
     }
 }
