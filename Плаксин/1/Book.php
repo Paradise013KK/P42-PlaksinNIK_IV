@@ -1,29 +1,34 @@
 <?php
+class Book
+{
+    private string $title;
+    private string $author;
+    private bool $isAvailable;
 
-class Book {
-    private $title;
-    private $author;
-    private $isAvailable;
-
-    public function __construct($title, $author) {
+    public function __construct(string $title, string $author)
+    {
         $this->title = $title;
         $this->author = $author;
         $this->isAvailable = true;
     }
 
-    public function getTitle() {
+    public function getTitle(): string
+    {
         return $this->title;
     }
 
-    public function getAuthor() {
+    public function getAuthor(): string
+    {
         return $this->author;
     }
 
-    public function isAvailable() {
+    public function isAvailable(): bool
+    {
         return $this->isAvailable;
     }
 
-    public function setAvailable($status) {
-        $this->isAvailable = $status;
+    public function setAvailable(bool $availability): void
+    {
+        $this->isAvailable = $availability;
     }
 }
