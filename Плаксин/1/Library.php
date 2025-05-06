@@ -1,20 +1,23 @@
 <?php
 
 class Library {
-    private $books = [];
-    private $users = [];
+    private array $books = [];
+    private array $users = [];
 
-    public function addBook($book) {
+    public function addBook($book): void 
+    {
         $this->books[] = $book;
         echo "Книга '{$book->getTitle()}' добавлена в библиотеку.\n";
     }
 
-    public function registerUser($user) {
+    public function registerUser($user): void 
+    {
         $this->users[] = $user;
         echo "Пользователь '{$user->getName()}' зарегистрирован.\n";
     }
 
-    public function findBookByTitle($title) {
+    public function findBookByTitle($title): mixed 
+    {
         foreach ($this->books as $book) {
             if ($book->getTitle() === $title) {
                 return $book;
@@ -24,7 +27,8 @@ class Library {
         return null;
     }
 
-    public function findUserById($userID) {
+    public function findUserById($userID): mixed 
+    {
         foreach ($this->users as $user) {
             if ($user->getUserID() === $userID) {
                 return $user;
