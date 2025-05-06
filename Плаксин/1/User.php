@@ -1,17 +1,18 @@
 <?php
 
 class User {
-    private $name;
-    private $userID;
-    private $borrowedBooks = [];
-    private $penalty = 0;
+    private string $name;
+    private int $userID;
+    private array $borrowedBooks = [];
+    private int $penalty = 0;
 
     public function __construct($name, $userID) {
         $this->name = $name;
         $this->userID = $userID;
     }
 
-    public function borrowBook($book, $dueDate) {
+    public function borrowBook($book, $dueDate):void 
+    {
         if ($book->isAvailable()) {
             $book->setAvailable(false);
             $this->borrowedBooks[] = [
@@ -24,7 +25,8 @@ class User {
         }
     }
 
-    public function returnBook($book) {
+    public function returnBook($book): void 
+    {
         foreach ($this->borrowedBooks as $key => $borrowedBook) {
             if ($borrowedBook['book'] === $book) {
                 $book->setAvailable(true);
@@ -46,7 +48,8 @@ class User {
         echo "Книга '{$book->getTitle()}' не найдена в списке взятых.\n";
     }
 
-    public function getPenalty() {
+    public function getPenalty(): float|int 
+    {
         return $this->penalty;
     }
 
